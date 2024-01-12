@@ -9,14 +9,15 @@
 	--nav-color: hsl(240, 33%, 30%);
 	--underline-color: hsl(60, 100%, 50%);
 	--heading-color: hsl(197, 71%, 73%);
+	--font-color: white;
 }
 
 body {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 1.125rem;
 	background-color: var(--bg-color);
-	color: white;
-	min-height: 140vw;
+	color: var(--font-color);
+	/* min-height: 140vw; */
 	line-height: 1.5;
 }
 
@@ -36,8 +37,8 @@ a {
 }
 
 a:focus-visible {
-	outline: 1px solid white;
-	outline-offset: 5px;
+	outline: 0.1rem solid var(--font-color);
+	outline-offset: 0.25rem;
 }
 
 p {

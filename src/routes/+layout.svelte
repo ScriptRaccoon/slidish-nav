@@ -35,11 +35,11 @@
 	main {
 		max-width: 40rem;
 		margin: 0 auto;
-		position: relative;
+		display: grid;
 	}
 
 	.page {
+		grid-area: 1 / 1;
 		padding-inline: 1rem;
-		position: absolute;
 	}
 </style>

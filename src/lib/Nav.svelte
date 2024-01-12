@@ -37,6 +37,7 @@
 		{/each}
 
 		<div
+			aria-hidden="true"
 			class="underline"
 			style:--pos={page_pos}
 			class:invisible={page_pos < 0}
