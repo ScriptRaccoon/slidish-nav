@@ -22,7 +22,10 @@
 	$: page_pos = PAGES.findIndex((page) => page.path === current_path)
 </script>
 
-<nav style:--animation-speed="{animation_speed}ms">
+<nav
+	style:--animation-speed="{animation_speed}ms"
+	style:--page-count={PAGES.length}
+>
 	<ul>
 		{#each PAGES as { path, name }}
 			{@const is_current = path === current_path}
@@ -59,7 +62,7 @@
 	ul {
 		list-style: none;
 		display: grid;
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(var(--page-count), 1fr);
 		justify-content: center;
 		position: relative;
 	}
@@ -76,7 +79,7 @@
 		top: 100%;
 		left: 0;
 		transform: translateX(calc(var(--pos) * 100%));
-		width: calc(100% / 3);
+		width: calc(100% / var(--page-count));
 		transition:
 			transform var(--animation-speed) ease,
 			opacity var(--animation-speed) ease;
