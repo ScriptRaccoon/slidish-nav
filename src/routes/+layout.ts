@@ -1,3 +1,3 @@
 export const load = (event) => {
-	return { url: event.url.pathname }
+	return { pathname: event.url.pathname }
 }

@@ -2,14 +2,19 @@
 	import { fade } from "svelte/transition"
 	import "./app.css"
 	import Nav from "$lib/Nav.svelte"
+	import { onMount } from "svelte"
 
 	export let data
 
-	const allows_animation =
-		typeof window !== "undefined" &&
-		window.matchMedia("(prefers-reduced-motion: no-preference)").matches
+	let animation_speed = 0
 
-	const animation_speed = allows_animation ? 180 : 0
+	onMount(() => {
+		const allows_animation = window.matchMedia(
+			"(prefers-reduced-motion: no-preference)"
+		).matches
+
+		animation_speed = allows_animation ? 180 : 0
+	})
 </script>
 
 <svelte:head>
@@ -19,7 +24,7 @@
 <Nav {animation_speed} />
 
 <main>
-	{#key data.url}
+	{#key data.pathname}
 		<div class="page" transition:fade={{ duration: animation_speed }}>
 			<slot />
 		</div>
